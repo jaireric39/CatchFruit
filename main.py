@@ -28,13 +28,13 @@ while run:
         catcher.move(Direction.RIGHT)
 
     fruit.move()
-
+    catcher.check_for_fruit(fruit)
     if fruit.check_bounds() == True:
         text = font.render('Game Over', True, (255, 255, 255))
         window.blit(text, (20, 120))
         pygame.display.update()
         pygame.time.delay(1000)
-        fruit.respawn()
+        fruit.reset()
 
     window.fill((0, 0, 0))
     fruit.draw(pygame, window)
