@@ -7,6 +7,7 @@ class Direction(Enum):
 
 
 class Catcher:
+    score = 0
     block_size = None
     color = (0, 0, 255)
     x = 0
@@ -22,21 +23,19 @@ class Catcher:
         self.block_size = block_size
         self.bounds = bounds
         self.y = bounds[1] - block_size
-        self.respawn()
-
-    def respawn(self):
-        print("hi")
 
     def move(self, direction):
         #print(direction)
         if direction == Direction.LEFT and self.x >= self.speed:
-            print("left")
             self.x -= self.speed
         elif direction == Direction.RIGHT and self.x <= self.bounds[0]:
             self.x += self.speed
 
     def eat(self):
-        print("eat")
+        self.score += 1
+
+    def reset(self):
+        self.score = 0
 
     #sees if catcher is over the fruit
     def check_for_fruit(self, fruit):

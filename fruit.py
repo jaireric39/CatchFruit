@@ -12,6 +12,7 @@ class Fruit:
     def __init__(self, block_size, bounds):
         self.block_size = block_size
         self.bounds = bounds
+        self.respawn()
 
     def draw(self, game, window):
         game.draw.circle(window, self.color, (self.x, self.y),
