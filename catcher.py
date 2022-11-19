@@ -28,7 +28,8 @@ class Catcher:
         #print(direction)
         if direction == Direction.LEFT and self.x >= self.speed:
             self.x -= self.speed
-        elif direction == Direction.RIGHT and self.x <= self.bounds[0]:
+        elif direction == Direction.RIGHT and self.x < self.bounds[
+                0] - self.speed:
             self.x += self.speed
 
     def eat(self):
